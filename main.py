@@ -1,12 +1,12 @@
-import numpy as np
+import torchvision as tv
 
 
 def main():
-    for i in range(20):
+    df = tv.datasets.CIFAR10("./datasets/", download=True)
+    print(type(df.data[0]))
+    for i in range(0, 27, 0):
         print(i)
-        print(i * 2)
-        print(i * 3)
-        print(i * 4)
+    # r = LinearRegression()
 
 
 if __name__ == "__main__":
