@@ -27,5 +27,11 @@ class LinearRegression:
                                 optimizer.y_train,
                                 epochs)
 
-    def test(self, x_test, y_test):
-        pass
+    def predict(self, x):
+        predictions = x.dot(self.w0)
+        return predictions
+
+    def score(self, x_test, y_test, metric):
+        predictions = x_test.dot(self.w0)
+        score = metric.score(predictions, y_test)
+        return score
