@@ -12,6 +12,8 @@ Math: Your prediction h(x) will be the weighted sum of each feature.
 
 h(x) = transpose(x) * w
 
+TODO: Talk about how to solve the equation dJ / dw = 0
+
 Learn more: https://cutt.ly/JkK8z4D
 Least Squares: https://cutt.ly/HkK8E9c at section 4.4
 
@@ -35,3 +37,6 @@ class LinearRegression:
         predictions = x_test.dot(self.w0)
         score = metric.score(predictions, y_test)
         return score
+
+    def solve(self, x_train, y_train):
+        self.w0 = np.linalg.inv(x_train.transpose().dot(x_train)).dot(x_train.transpose()).dot(y_train)
