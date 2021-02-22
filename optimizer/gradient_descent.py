@@ -1,6 +1,6 @@
 import numpy as np
+
 from loss.mean_squared_error import MeanSquaredError
-from util.util import s_range
 
 """
 Batch Gradient Descent: Is a gradient based optimization method,
@@ -27,15 +27,21 @@ dw = gradient of the loss function with respect to the weights w
 
 
 class GradientDescent:
-    def __init__(self, learning_rate, batch_size):
+    def __init__(self, x_train, y_train, learning_rate, batch_size, random_state):
+        self.x_train = x_train
+        self.y_train = y_train
         self.learning_rate = learning_rate
         self.batch_size = batch_size
+        np.random.seed(random_state)
 
-    def fit(self, w, x_train, y_train, epochs):
+    def fit(self, x_train, y_train, epochs):
         loss_function = MeanSquaredError()
-        for epoch in epochs:
-            for batch in s_range(self.batch_size, len(x_train), self.batch_size):
-                loss_function.calculate_gradient(w, x_train[:batch - self.batch_size], y_train[:batch - self.batch_size])
+        w = np.random.rand(x_train.shape[1]) / 1000
+        for epoch in range(epochs):
+            for batch in range(0, len(x_train), self.batch_size):
+                x_batch = x_train[batch: batch + self.batch_size]
+                y_batch = y_train[batch: batch + self.batch_size]
+                loss_function.calculate_gradient(w, x_batch, y_batch)
                 w = self.update_weights(w, loss_function.dw)
         return w
 
