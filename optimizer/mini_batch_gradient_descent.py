@@ -21,5 +21,5 @@ dw = gradient of the loss function with respect to the weights w
 
 
 class MiniBatchGradientDescent(GradientDescent):
-	def __init__(self, learning_rate, batch_size):
-		super().__init__(learning_rate, batch_size)
+	def __init__(self, x_train, y_train, learning_rate, batch_size, random_state=None):
+		super().__init__(x_train, y_train, learning_rate, batch_size, random_state)
