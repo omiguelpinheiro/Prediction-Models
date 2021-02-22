@@ -1,1 +1,4 @@
 from optimizer.gradient_descent import GradientDescent
+from optimizer.batch_gradient_descent import BatchGradientDescent
+from optimizer.mini_batch_gradient_descent import MiniBatchGradientDescent
+from optimizer.stochastic_gradient_descent import StochasticGradientDescent
