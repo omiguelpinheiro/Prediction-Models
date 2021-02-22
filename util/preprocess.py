@@ -3,7 +3,6 @@ np.random.seed()
 
 
 def train_test_split(data, train_size=0.75, shuffle=True, random_state=None):
-	np.random.seed(random_state)
 	if not isinstance(data, np.ndarray):
 		raise TypeError(f"data {data} is not a numpy array")
 
@@ -19,7 +18,7 @@ def train_test_split(data, train_size=0.75, shuffle=True, random_state=None):
 	m = data.shape[0]
 
 	if shuffle:
-		rng = np.random.default_rng()
+		rng = np.random.default_rng(random_state)
 		rng.shuffle(data)
 
 	x_train = data[: int(m * train_size), : -1]
