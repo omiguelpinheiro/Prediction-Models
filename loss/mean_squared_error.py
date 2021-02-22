@@ -27,7 +27,7 @@ class MeanSquaredError:
 
 	def calculate_gradient(self, w, x_train, y_train):
 		m = len(x_train)
-		predictions = x_train.T * w
-		errors = predictions - y_train
-		self.dw = (1 / m) * 2 * errors * x_train
-		self.loss = (1 / 2 * m) * sum(errors ** 2)
+		predictions = x_train.dot(w)
+		residuals = y_train - predictions
+		self.dw = - x_train.transpose().dot(residuals) / m
+		self.loss = (1 / 2 * m) * sum(residuals ** 2)
