@@ -19,15 +19,12 @@ Least Squares: https://cutt.ly/HkK8E9c at section 4.4
 
 
 class LinearRegression:
-    def __init__(self, x_train, y_train):
-        self.w0 = np.random.rand(x_train.shape[1])
-        self.x_train = x_train
-        self.y_train = y_train
+    def __init__(self):
+        self.w0 = None
 
     def train(self, optimizer, epochs):
-        self.w0 = optimizer.fit(self.w0,
-                                self.x_train,
-                                self.y_train,
+        self.w0 = optimizer.fit(optimizer.x_train,
+                                optimizer.y_train,
                                 epochs)
 
     def test(self, x_test, y_test):
