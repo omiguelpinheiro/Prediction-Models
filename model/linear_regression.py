@@ -6,16 +6,32 @@ Linear Regression Model: Uses examples features to fit the line that
 gives us the lower loss for the examples. You can use several ways
 to find this line, they are Batch Gradient Descent, Mini Batch
 Gradient Descent, Stochastic Gradient Descent and finally using the
-normal equation to directly jump to the local minima.
+normal equation to directly jump to the local minima
 
-Math: Your prediction h(x) will be the weighted sum of each feature. 
+Math: Your prediction h(x) will be the weighted sum of each feature
 
 h(x) = transpose(x) * w
 
-TODO: Talk about how to solve the equation dJ / dw = 0
+Linear Regression Models are unique in the way that you don't actually
+need to use gradient descent to find local minima because the loss
+function is always convex, meaning that there is only one local minima
+that is the global minima
+
+Math: We want to minimize the square of the eucledian distance between
+our examples predictions and their true values
+
+||Ax - b|| ** 2 = (Ax - b)T(Ax - b) = xTATAx - 2bTAx + bTb
+
+Taking the gradient with respect to x
+
+grad(xTATAx) - grad(2bTAx) + grad(bTb) = 2ATAx - 2ATb
+
+Solving the gradient last equation for 0
+
+x = ((ATA) ** -1)ATb 
 
 Learn more: https://cutt.ly/JkK8z4D
-Least Squares: https://cutt.ly/HkK8E9c at section 4.4
+Matrix Properties, Matrix Calculus and Least Squares: https://cutt.ly/HkK8E9c
 
 """
 
