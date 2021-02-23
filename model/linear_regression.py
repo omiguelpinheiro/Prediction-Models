@@ -48,3 +48,6 @@ class LinearRegression:
         if self.fit_intercept:
             x_train = np.insert(x_train, 0, np.ones(len(x_train)), 1)
         self.w0 = np.linalg.inv(x_train.transpose().dot(x_train)).dot(x_train.transpose()).dot(y_train)
+
+    def get_weights(self):
+        return self.w0
