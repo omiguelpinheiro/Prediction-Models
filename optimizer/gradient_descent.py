@@ -34,8 +34,10 @@ class GradientDescent:
         self.batch_size = batch_size
         np.random.seed(random_state)
 
-    def fit(self, x_train, y_train, epochs):
+    def fit(self, x_train, y_train, epochs, fit_intercept):
         loss_function = MeanSquaredError()
+        if fit_intercept:
+            x_train = np.insert(x_train, 0, np.ones(len(x_train)), 1)
         w = np.random.rand(x_train.shape[1]) / 1000
         for epoch in range(epochs):
             for batch in range(0, len(x_train), self.batch_size):

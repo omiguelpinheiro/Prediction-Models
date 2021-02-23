@@ -16,7 +16,6 @@ J = Mean Squared Error loss function
 h(x) = the model predictions for the x example
 m = number of examples
 sum = sum over all the m examples
-
 """
 
 

@@ -1,3 +1,7 @@
+"""
+
+"""
+
 class R2Score:
 	def score(self, y_pred, y_true):
 		numerator = ((y_true - y_pred) ** 2).sum()

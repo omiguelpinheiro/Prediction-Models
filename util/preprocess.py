@@ -27,7 +27,7 @@ def train_test_split(data, train_size=0.75, shuffle=True, random_state=None):
 	x_test = data[int(m * train_size):, :-1]
 	y_test = data[int(m * train_size):, -1]
 
-	return x_train, y_train, x_test, y_test
+	return x_train, x_test, y_train, y_test
 
 
 class StandardScaler:
