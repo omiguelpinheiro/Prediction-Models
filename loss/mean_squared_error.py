@@ -1,6 +1,7 @@
 """
+
 Mean Squared Error (MSE): This loss is useful because it treats big
-errors as more relevant than small errors.
+errors as more relevant than small errors. Used in regressions.
 
 Math: The loss is the mean of the sum of the squared differences 
 between all of the predictions h(x) and their true values y. It's
@@ -16,6 +17,7 @@ J = Mean Squared Error loss function
 h(x) = the model predictions for the x example
 m = number of examples
 sum = sum over all the m examples
+
 """
 
 
