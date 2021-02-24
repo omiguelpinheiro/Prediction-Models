@@ -21,3 +21,10 @@ class R2Score:
 		sqt = ((y_true - y_true.mean()) ** 2).sum()
 		r2_score = 1 - sqr / sqt
 		return r2_score
+
+
+class AdjustedR2Score:
+	def score(self, m, n, y_pred, y_true):
+		r2_score = R2Score.score(y_pred, y_true)
+		adjusted_r2 = 1 - ((m - 1) / (m - n + 1)) * (1 - r2_score)
+		return adjusted_r2
