@@ -17,7 +17,7 @@ sqt = ((y_true / y_mean) ** 2).sum() = Residuals from mean
 
 class R2Score:
 	def score(self, y_pred, y_true):
-		numerator = ((y_true - y_pred) ** 2).sum()
-		denominator = ((y_true - y_true.mean()) ** 2).sum()
-		r2_score = 1 - numerator / denominator
+		sqr = ((y_true - y_pred) ** 2).sum()
+		sqt = ((y_true - y_true.mean()) ** 2).sum()
+		r2_score = 1 - sqr / sqt
 		return r2_score
