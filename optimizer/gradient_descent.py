@@ -3,6 +3,7 @@ import numpy as np
 from loss.mean_squared_error import MeanSquaredError
 
 """
+
 Batch Gradient Descent: Is a gradient based optimization method,
 the "Batch" means it uses all of the dataset examples to make one
 update on the model weights. It is the most precise way to reach a
